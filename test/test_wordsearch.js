@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const wordSearch = require('../wordsearch.js')
+const wordSearch = require('../wordsearch.js');
 
 describe("#wordSearch()", function() {
   it("should return false if the word is not present", function() {
@@ -15,7 +15,7 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'FRANK')
+    ], 'FRANK');
 
     assert.isFalse(result);
   });
@@ -31,7 +31,31 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'SEINFELD')
+    ], 'SEINFELD');
+
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present VERTICALLY", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'F'],
+      ['S', 'E', 'B', 'N'],
+      ['Y', 'F', 'O', 'F'],
+      ['H', 'M', 'B', 'T'],
+
+    ], 'BOB');
+
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present but reversed!", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'F'],
+      ['A', 'N', 'I', 'T'],
+      ['Y', 'F', 'O', 'F'],
+      ['H', 'M', 'B', 'T'],
+
+    ], 'TINA');
 
     assert.isTrue(result);
   });
